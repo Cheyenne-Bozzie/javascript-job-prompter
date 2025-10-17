@@ -72,3 +72,45 @@ const departments = {
 }
 
 console.log(departments);
+
+// opdracht 1:
+console.log(`De afdeling Sales heeft ${departments.sales.numberOfEmployees} medewerkers.`);
+console.log(`Marketing is een leuke afdeling om te werken. ${departments.marketing.description}`);
+console.log(`De afdeling Customer Service heeft ${departments["customer-service"].numberOfEmployees} medewerkers.`);
+console.log(`Sales is een uitdagende afdeling om te werken als Verkoopmanager. ${departments.sales.jobs.find(job => job.title === "Verkoopmanager").description}`)
+
+// opdracht 2:
+const userInput = prompt('Over welke afdeling wil je meer informatie? Kies uit: [marketing / sales / customer-service]');
+console.log(userInput);
+
+if (userInput === "marketing") {
+    console.log(`Je koos ${userInput}. ${departments.marketing.description}`);
+
+} else if (userInput === "sales") {
+    console.log(`Je koos ${userInput}. ${departments.sales.description}`);
+
+} else if (userInput === "customer-service") {
+    console.log(`Je koos ${userInput}. ${departments["customer-service"].description}`);
+
+} else {
+    console.error("Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.")
+}
+
+// opdracht 3:
+const descriptionParagraph = document.getElementById('department-description')
+const error = document.getElementById('error-message')
+
+if (userInput === "marketing") {
+    descriptionParagraph.textContent = departments.marketing.description;
+
+} else if (userInput === "sales") {
+    descriptionParagraph.textContent = departments.sales.description;
+
+} else if (userInput === "customer-service") {
+    descriptionParagraph.textContent = departments["customer-service"].description;
+
+} else {
+    error.textContent = ("Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.");
+}
+
+// opdracht 4:
